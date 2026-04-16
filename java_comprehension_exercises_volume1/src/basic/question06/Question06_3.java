@@ -31,6 +31,8 @@ public class Question06_3 {
 
 		System.out.println("購入した鉛筆の本数は" + amount + "本です");
 
+		System.out.println("購入した鉛筆の合計金額は" + amount * price + "円です。");
+
 	}
 
 }
