@@ -21,7 +21,7 @@ public class Question07_3 {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
 		for (int i = 0; i < 5; i++) {
-			System.out.print(itemNames + "の在庫数:＞");
+			System.out.print(itemNames[i] + "の在庫数:＞");
 			String stocksInput = reader.readLine();
 			stocks[i] = Integer.parseInt(stocksInput);
 		}
@@ -30,23 +30,29 @@ public class Question07_3 {
 			boolean isvalid = false;
 			while (!isvalid) {
 
-				System.out.println(itemNames + "の購入数:＞");
+				System.out.print(itemNames[i] + "の購入数:＞");
 				String amountsInput = reader.readLine();
 				amount = Integer.parseInt(amountsInput);
 
-				if (amount >= stocks[i]) {
+				if (amount > stocks[i]) {
 					System.out.println("在庫を超えています。もう1度入力してください。");
 				} else {
 					amounts[i] = amount;
 					isvalid = true;
 				}
 			}
-			
-				
-			}
+		}
+		for (int i = 0; i < 5; i++) {
+
+			System.out.println(itemNames[i] + ":購入：" + amounts[i] + "個");
+			System.out.println("在庫" + (stocks[i] - amounts[i]) + "個");
+		}
+		int totalPrice = 0;
+		for (int i = 0; i < 5; i++) {
+			totalPrice += (prices[i] * amounts[i]);
 
 		}
-
+		System.out.println("合計金額：" + totalPrice + "円");
 	}
 
 }
